@@ -1,0 +1,9 @@
+[user]
+	email = dinostrozars@gmail.com
+	name = David Inostroza
+[diff]
+    tool = meld
+[difftool]
+    prompt = false
+[difftool "meld"]
+    cmd = meld "$LOCAL" "$REMOTE"
