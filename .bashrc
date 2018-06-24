@@ -57,16 +57,17 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\W\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[1;32m\]\W'
+	PS1=$PS1$'\[\033[1;35m\] \u31F1 \[\033[1;37m\]'
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\w\$ '
 fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \W\a\]$PS1"
     ;;
 *)
     ;;
@@ -127,3 +128,6 @@ fi
 #Default editor and visual for many softwares
 export VISUAL=vim
 export EDITOR="$VISUAL"
+
+#Android Path
+export PATH=$PATH:/usr/local/android-studio/bin/
